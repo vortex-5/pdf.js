@@ -76,7 +76,16 @@ const DefaultExternalServices = {
   },
 };
 
+let wpwPagesInitCallback = null;
+let wpwPagesLoadedCallback = null;
+
 let PDFViewerApplication = {
+  setPagesInitCallback: function(callback) { wpwPagesInitCallback = callback; },
+  callPagesInit: function() { if (wpwPagesInitCallback) wpwPagesInitCallback(); },
+  setPagesLoadedCallback: function(callback) { wpwPagesLoadedCallback = callback; },
+  callPagesLoaded: function() { if (wpwPagesLoadedCallback) wpwPagesLoadedCallback(); },
+  passwordPrompt: null,
+  getPDFFileNameFromURL: getPDFFileNameFromURL,
   initialBookmark: document.location.hash.substring(1),
   initialized: false,
   fellback: false,
@@ -373,6 +382,7 @@ let PDFViewerApplication = {
 
     this.passwordPrompt = new PasswordPrompt(appConfig.passwordOverlay,
                                              this.overlayManager, this.l10n);
+    PDFViewerApplication.passwordPrompt = this.passwordPrompt;
 
     this.pdfOutlineViewer = new PDFOutlineViewer({
       container: appConfig.sidebar.outlineView,

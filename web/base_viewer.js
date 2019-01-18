@@ -23,6 +23,7 @@ import { PDFRenderingQueue, RenderingStates } from './pdf_rendering_queue';
 import { AnnotationLayerBuilder } from './annotation_layer_builder';
 import { createPromiseCapability } from 'pdfjs-lib';
 import { PDFPageView } from './pdf_page_view';
+import { PDFViewerApplication } from './app.js';
 import { SimpleLinkService } from './pdf_link_service';
 import { TextLayerBuilder } from './text_layer_builder';
 
@@ -391,6 +392,7 @@ class BaseViewer {
         source: this,
         pagesCount,
       });
+      PDFViewerApplication.callPagesLoaded();
     });
 
     let isOnePageRenderedResolved = false;
@@ -479,8 +481,9 @@ class BaseViewer {
           });
         }
       });
-
+      
       this.eventBus.dispatch('pagesinit', { source: this, });
+      PDFViewerApplication.callPagesInit();
 
       if (this.findController) {
         this.findController.setDocument(pdfDocument); // Enable searching.

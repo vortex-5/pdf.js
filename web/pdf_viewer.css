@@ -30,6 +30,7 @@
   background-clip: content-box;
   border-image: url(images/shadow.png) 9 9 repeat;
   background-color: white;
+  box-sizing: initial;
 }
 
 .pdfViewer.removePageBorders .page {

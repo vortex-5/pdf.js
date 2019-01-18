@@ -213,7 +213,7 @@ const defaultOptions = {
   },
   verbosity: {
     /** @type {number} */
-    value: 1,
+    value: 0,
     kind: OptionKind.API,
   },
 

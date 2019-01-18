@@ -153,6 +153,31 @@
   width: 20em;
 }
 
+.top-layer {
+  z-index: 999999 !important;
+}
+
+.slide-down .popover-area.right {
+  margin-top: 45px;
+}
+
+.annotationLayer .reference-preview-popover .reference-preview {
+  padding-left: 10px;
+}
+
+.annotationLayer .reference-preview-popover .reference-preview ol,
+.annotationLayer .reference-preview-popover .reference-preview ul {
+  padding-left: 30px;
+}
+
+.annotationLayer .reference-preview-popover .popover-area.right {
+  top: -57px !important;
+}
+
+.annotationLayer .reference-preview-popover .popover-area.right .arrow {
+  visibility: hidden;
+}
+
 .annotationLayer .popup {
   position: absolute;
   z-index: 200;
@@ -165,6 +190,7 @@
   cursor: pointer;
   font: message-box;
   word-wrap: break-word;
+  font-size: 66%;
 }
 
 .annotationLayer .popup h1 {
@@ -172,11 +198,23 @@
   border-bottom: 1px solid #000000;
   margin: 0;
   padding-bottom: 0.2em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .annotationLayer .popup p {
   margin: 0;
   padding-top: 0.2em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.annotationLayer .popup ol {
+  padding-left: 40px;
+}
+
+.annotationLayer .popup ul {
+  padding-left: 40px;
 }
 
 .annotationLayer .highlightAnnotation,
