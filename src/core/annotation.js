@@ -625,7 +625,9 @@ class WidgetAnnotation extends Annotation {
     // cause errors when sending annotations to the main-thread (issue 10347).
     if (data.fieldType === 'Sig') {
       data.fieldValue = null;
-      this.setFlags(AnnotationFlag.HIDDEN);
+      // TODO: SE-9083 REMOVE THIS ONCE SIGNATURE VERIFICATION IS SUPPORTED
+      //       IN PDF.JS
+      // this.setFlags(AnnotationFlag.HIDDEN);
     }
   }
 
