@@ -15,6 +15,7 @@
 
 import { NullL10n } from './ui_utils';
 import { PasswordResponses } from 'pdfjs-lib';
+import { PDFViewerApplication } from './app';
 
 /**
  * @typedef {Object} PasswordPromptOptions
@@ -90,6 +91,9 @@ class PasswordPrompt {
     let password = this.input.value;
     if (password && password.length > 0) {
       this.close();
+      if (PDFViewerApplication.passwordCallback) {
+        PDFViewerApplication.passwordCallback(password);
+      }
       return this.updateCallback(password);
     }
   }

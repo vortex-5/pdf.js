@@ -84,7 +84,7 @@ let PDFViewerApplication = {
   callPagesInit: function() { if (wpwPagesInitCallback) wpwPagesInitCallback(); },
   setPagesLoadedCallback: function(callback) { wpwPagesLoadedCallback = callback; },
   callPagesLoaded: function() { if (wpwPagesLoadedCallback) wpwPagesLoadedCallback(); },
-  passwordPrompt: null,
+  passwordCallback: null,
   getPDFFileNameFromURL: getPDFFileNameFromURL,
   initialBookmark: document.location.hash.substring(1),
   initialized: false,
