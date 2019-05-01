@@ -46,6 +46,10 @@ select {
   outline: none;
 }
 
+button#print {
+  display: none;
+}
+
 .hidden {
   display: none !important;
 }
